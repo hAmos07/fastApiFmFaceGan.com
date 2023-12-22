@@ -1,0 +1,31 @@
+{% extends 'fmfacegan/layout_contacts.html' %}
+{% block content %}
+<div class="container mx-auto flex flex-wrap py-6">
+    <section class="w-full mx-auto flex flex-wrap md:w-2/4 items-center px-3">
+        <article class="flex flex-col shadow my-4">
+            <img src="/static/img/hero-lg.webp">
+            <div class="bg-white flex flex-col justify-start p-6">
+                <h1 id="generator" class="text-2xl font-bold pb-3">FmFaceGan - Контакты</h1>
+                <p class="pb-3">Для вопросов и предложений.</p>
+                <form method="post" action="/contacts/">
+                    <label for="name"><b>Имя</b></label>
+                    <br>
+                    <input type="name" name="name" class="block mb-2 p-2.5 w-full rounded-lg border border-gray-300 dark:bg-gray-100 text-stone-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" id="name" maxlength="15" required placeholder="Имя">
+                    <br>
+                    <label for="subject"><b>Тема</b></label>
+                    <br>
+                    <input type="subject" name="subject" class="block mb-2 p-2.5 w-full rounded-lg border border-gray-300 dark:bg-gray-100 text-stone-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" id="subject" maxlength="30" required placeholder="Тема">
+                    <input type="hidden" id="g_recaptcha_response" name="g_recaptcha_response">
+                    <input type="hidden" name="action" value="validate_captcha">
+                    <br>
+                    <b>Сообщение</b>
+                    <textarea id="massage_form" name="massage" rows="10" class="block mb-2 p-2.5 w-full rounded-lg border border-gray-300 dark:bg-gray-100 text-stone-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Введите ваше сообщение." required></textarea>
+                    <div class="flex items-center justify-center">
+                    <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-500 rounded" type="submit" value="{{ contacts_form_send_button_text }}">
+                    </div>
+                </form>
+            </div>
+        </article>
+    </section>
+</div>
+{% endblock content %}

@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  fmfacegan:
+    build: .
+    container_name: fmfacegan
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./fmfacegan/database/DB:/src/fmfacegan/database/DB"
+      - "./fmfacegan/content/faces/africa:/src/fmfacegan/content/africa"
+      - "./fmfacegan/content/faces/asia:/src/fmfacegan/content/asia"
+      - "./fmfacegan/content/faces/euro:/src/fmfacegan/content/euro"
+      - "./fmfacegan/content/faces/latina:/src/fmfacegan/content/latina"
+      - "./fmfacegan/content/faces/tmp:/src/fmfacegan/content/tmp"
+      - "./fmfacegan/download:/src/fmfacegan/download"
+    restart: always

@@ -1,0 +1,121 @@
+{% extends 'fmfacegan/layout.html' %}
+
+{% block content %}
+<div class="container mx-auto flex flex-wrap py-6">
+    <section class="w-full mx-auto flex flex-wrap md:w-2/4 items-center px-3">
+        <article class="flex flex-col shadow my-4">
+            <img src="/static/img/hero-lg.webp">
+            <div class="bg-white flex flex-col justify-start p-6">
+                <h1 id="generator" class="text-2xl font-bold pb-3">{{ h1 }}</h1>
+                <ul>
+                <li><p class="pb-3">Играете долгие карьеры в <b>Football Manager</b>?</p></li>
+                <li><p class="pb-3">В вашу футбольную академию пришли молодые Месии и Роналду?</p></li>
+                <li><p class="pb-3">Новый реген так хорош что заслуживает что бы в его честь назвали Вашего будущего сына?</p></li>
+                <li><p class="pb-3">Лица стандартных регенов из <b>Football Manager</b> снятся в кошмарах?</p></li>
+                </ul>
+                <p class="pb-3">Страданиям настал конец! :)</p>
+                <p class="pb-3"><b>FM FaceGan</b> - база лиц футболистов созданная нейросетью для замены стандартных лиц регенов в Football Manager любых версий!</p>
+                <p class="pb-3">В базе <em>400 000 лиц</em> игроков созданных нейросетью. Более 30 Гигабайт изображений.</p>
+
+                <ul> <b>4 вида игроков:</b>
+                    <li>Африканские - <b>africa</b></li>
+                    <li>Азиатские - <b>asia</b></li>
+                    <li>Латино-Американские - <b>latina</b></li>
+                    <li>Европейские - <b>euro</b></li>
+                </ul>
+                <br>
+                {% if download_url is defined and download_url|length > 0 %}
+                <br>
+                <div class="bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700 mb-3" role="alert">
+                    <a href="{{ download_url }}"><b>Скачать Архив</b></a>
+                </div>
+                {% endif %}
+
+                {% if error_codes is defined and error_codes|length > 0 %}
+                <br>
+                <div class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-3" role="alert">{{ error_codes }}</div>
+                {% endif %}
+                <form method="post" action="/">
+                    <input type="hidden" id="g_recaptcha_response" name="g_recaptcha_response">
+                    <input type="hidden" name="action" value="validate_captcha">
+                    <textarea id="regen_form" name="regen_id" rows="10" class="block mb-2 p-2.5 w-full rounded-lg border border-gray-300 dark:bg-gray-100 text-stone-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Введите ID регенов, не больше 20 за один раз, каждый ID с новой строки.&#10;&#10;id,africa&#10;id,asia&#10;id,latina&#10;id,euro&#10;и т.д..." required></textarea>
+                    <div class='flex items-center justify-center'>
+                    <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-500 rounded" type="submit" value="Генерировать">
+                    </div>
+                </form>
+
+                <h2 id="faq" class="text-2xl font-bold pb-3">{{ faq }}</h2>
+                <p class="pb-3">В форму выше добавить через запятую с новой строки ID регенов из FM и желаемое географическое происхождение игрока. Нажать кнопку <b>"Генерировать"</b>.</p>
+                <img src="/content/faq_img/faq_form.png" alt="Добавление ID регенов из Football Manager">
+                <p class="pb-3">Скачанный архив (пример - <b>graphics_6367e6db08550.zip</b>), перенести в папку <em>С:/Users/<b>{USER}</b>/Documents/Sports Interactive/Football Manager 20xx/</em> и распаковать в ней.</p>
+                <img src="/content/faq_img/fm_faq_step_1.png" alt="Папка Football Manager">
+                <p class="pb-3">Если у вас есть папка <b>graphics</b> то распаковать архив в неё, если этой папки ещё нет, то после распаковки архива она будет создана.</p>
+                <p class="pb-3">В папке <b>graphics</b> будет создана папка <b>regens_faces</b> содержащая изображения созданные нейросетью и файл <b>config.xml</b>.</p>
+                <p class="pb-3">После этого запустите <b>Football Manager</b> и очищаете кеш. На этом все.</p>
+                <h2 id="demo" class="text-2xl font-bold pb-3">{{ demo }}</h2>
+                <section class="overflow-hidden text-gray-700 ">
+                    <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
+                        <div class="flex flex-wrap -m-1 md:-m-2">
+                            <div class="flex flex-wrap w-1/3">
+                                <div class="w-full p-1 md:p-2">
+
+                                    <img alt="FM FaceGan african demo image 1" class="block object-cover object-center w-full h-full rounded-lg"
+                                         src="/content/demo_img/africa_demo_face_1.png">
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap w-1/3">
+                                <div class="w-full p-1 md:p-2">
+                                    <img alt="FM FaceGan asian demo image 2" class="block object-cover object-center w-full h-full rounded-lg"
+                                         src="/content/demo_img/asia_demo_face_2.png">
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap w-1/3">
+                                <div class="w-full p-1 md:p-2">
+                                    <img alt="FM FaceGan euro demo image 3" class="block object-cover object-center w-full h-full rounded-lg"
+                                         src="/content/demo_img/euro_demo_face_3.png">
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap w-1/3">
+                                <div class="w-full p-1 md:p-2">
+                                    <img alt="FM FaceGan latina demo image 4" class="block object-cover object-center w-full h-full rounded-lg"
+                                         src="/content/demo_img/latina_demo_face_4.png">
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap w-1/3">
+                                <div class="w-full p-1 md:p-2">
+                                    <img alt="FM FaceGan demo image 5" class="block object-cover object-center w-full h-full rounded-lg"
+                                         src="/content/demo_img/demo_face_5.png">
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap w-1/3">
+                                <div class="w-full p-1 md:p-2">
+                                    <img alt="FM FaceGan demo image 6" class="block object-cover object-center w-full h-full rounded-lg"
+                                         src="/content/demo_img/demo_face_6.png">
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap w-1/3">
+                                <div class="w-full p-1 md:p-2">
+                                    <img alt="FM FaceGan demo image 7" class="block object-cover object-center w-full h-full rounded-lg"
+                                         src="/content/demo_img/demo_face_7.png">
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap w-1/3">
+                                <div class="w-full p-1 md:p-2">
+                                    <img alt="FM FaceGan demo image 8" class="block object-cover object-center w-full h-full rounded-lg"
+                                         src="/content/demo_img/demo_face_8.png">
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap w-1/3">
+                                <div class="w-full p-1 md:p-2">
+                                    <img alt="FM FaceGan demo image 10" class="block object-cover object-center w-full h-full rounded-lg"
+                                         src="/content/demo_img/demo_face_9.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </section>
+</div>
+{% endblock content %}

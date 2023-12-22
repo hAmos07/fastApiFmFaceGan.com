@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    {% include 'fmfacegan/analitics.tpl' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="alternate" href="{{ base_uri }}/en/" hreflang="en" />
+	<link rel="alternate" href="{{ base_uri }}" hreflang="x-default" />
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="author" content="hAmos07">
+    <link rel="canonical" href="{{ base_uri }}" />
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link rel="icon" href="/static/img/favicon.ico" type="image/vnd.microsoft.icon" />
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body class="bg-white font-family-karla">
+{% include 'fmfacegan/nav.tpl' %}
+
+{% block content %}
+
+{% endblock content %}
+
+{% include 'fmfacegan/footer.tpl' %}
+{% include 'fmfacegan/captcha.tpl' %}
+</body>
+</html>

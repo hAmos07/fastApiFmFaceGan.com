@@ -1,0 +1,15 @@
+{
+  "lang": "en",
+  "url": "https://fmfacegan.com/en/",
+  "title": "FM FaceGan - Football Manager 2024 Face Generator",
+  "description": "FM FaceGan is a neuroscience-based regen face generator for Football Manager 2024. As well as previous versions of Football Manager.",
+  "menu" : "Menu",
+  "faq": "FAQ",
+  "demo": "DEMO",
+  "h1": "Football Manager 2024 face generator",
+  "lang_link": "<a href=\"/\" title=\"Russian version FM FaceGan\" class=\"hover:bg-gray-400 rounded py-2 px-4 mx-2\">RUS</a>",
+  "contacts_link": "<a href=\"/contacts/\" title=\"Contacts\" class=\"hover:bg-gray-400 rounded py-2 px-4 mx-2\">Contacts</a>",
+  "contacts_form_send_button_text": "Send",
+  "contacts_title": "FM FaceGan - Feedback",
+  "contacts_description": "Feedback page for complaints and suggestions."
+}

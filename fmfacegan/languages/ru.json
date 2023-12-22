@@ -1,0 +1,15 @@
+{
+  "lang": "ru",
+  "url": "https://fmfacegan.com/",
+  "title": "FM FaceGan - Football Manager 2024 Генератор Лиц",
+  "description": "FM FaceGan - генератор лиц регенов на основе нейрости для Football Manager 2024. А также прошлых версий Football Manager.",
+  "menu" : "Меню",
+  "faq": "Инструкция",
+  "demo": "Демо",
+  "h1": "Football Manager 2024 генератор лиц",
+  "lang_link": "<a href=\"/en/\" title=\"English version FM FaceGan\" class=\"hover:bg-gray-400 rounded py-2 px-4 mx-2\">ENG</a>",
+  "contacts_link": "<a href=\"/contacts/\" title=\"Контакты\" class=\"hover:bg-gray-400 rounded py-2 px-4 mx-2\">Контакты</a>",
+  "contacts_form_send_button_text": "Отправить",
+  "contacts_title": "FM FaceGan - Контакты",
+  "contacts_description": "Страница обратной связи для жалоб и предложений."
+}
